@@ -128,18 +128,17 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
   FileInput.createInstance(event.target.closest(SELECTOR_DATA_TOGGLE))
 })
 
-EventHandler
-  .on(document, EVENT_RESET_DATA_API, SELECTOR_FORM, event => {
-    const form = event.target
+EventHandler.on(document, EVENT_RESET_DATA_API, SELECTOR_FORM, event => {
+  const form = event.target
 
-    SelectorEngine.find(SELECTOR_DATA_TOGGLE, form)
-      .filter(inputFileNode => FileInput.getInstance(inputFileNode))
-      .forEach(inputFileNode => {
-        const inputFile = FileInput.getInstance(inputFileNode)
+  SelectorEngine.find(SELECTOR_DATA_TOGGLE, form)
+  .filter(inputFileNode => FileInput.getInstance(inputFileNode))
+  .forEach(inputFileNode => {
+    const inputFile = FileInput.getInstance(inputFileNode)
 
-        inputFile.restoreDefaultText()
-      })
+    inputFile.restoreDefaultText()
   })
+})
 
 const $ = getjQuery()
 
